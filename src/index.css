@@ -120,7 +120,11 @@ body {
   width: 400px;
   height: 340px;
   box-shadow: 0 20px 5px rgba(0, 0, 0, 0.2); /* x偏移，y偏移，模糊半径，颜色 */
+  cursor: pointer;
+}
 
+.country-card:hover{
+  transform: scale(1.1);
 }
 
 .country-card-image{
@@ -152,4 +156,71 @@ body {
   margin-bottom: 40px;
   font-size: 14px;
   font-weight: 900px;
+}
+/*------------------------------------*\
+  #Country-details
+\*------------------------------------*/
+
+.country{
+  padding: 50px 80px;
+}
+
+.country #country-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 130px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--color-White);
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2); /* x偏移，y偏移，模糊半径，颜色 */
+  margin-bottom: 50px;
+}
+
+.country-details{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+.country-image img{
+  width: 550px;
+  height: 340px;
+}
+
+
+#country-title{
+  position: relative;
+  font-size: 24px;
+  font-weight: 900;
+  top: -20px;
+}
+
+.country-info-detalis{
+  display: flex;
+  flex-direction: row;
+  gap: 120px;
+}
+
+.country-info-detalis p{
+  margin-bottom: 8px;
+}
+
+.country-details-downpart{
+  position: relative;
+  display: flex;
+  top: 40px;
+}
+
+.borders-container button{
+  border: none;
+  background-color: var(--color-White);
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2); /* x偏移，y偏移，模糊半径，颜色 */
+  margin: 0px 5px;
+  width: 50px;
+  cursor: pointer;
 }
