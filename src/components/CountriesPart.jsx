@@ -5,14 +5,24 @@ import { ReactComponent as SearchIcon } from "../images/icon-search.svg";
 
 function CountriesPart(){
     const [search, setSearch] = useState('');
+    const [searchByFilter, setSearchByFilter] = useState('');
 
     const handleSearchChange = (event) =>{
         setSearch(event.target.value);
+    }
+    const handleSearchByFilterChange = (event) =>{
+        setSearchByFilter(event.target.value);
+        console.log(event.target.value);
     }
 
     const filteredCountries = data.filter((countryData) =>
         countryData.name.toLowerCase().includes(search.toLowerCase())
     );
+    const filteredCountriesByFilter = searchByFilter 
+        ? filteredCountries.filter((countryData) =>
+             countryData.region.toLowerCase() === searchByFilter.toLowerCase())
+        : filteredCountries;
+
 
     return(
         <div className='countries'>
@@ -27,17 +37,17 @@ function CountriesPart(){
                         onChange={handleSearchChange}
                     />
                 </div>
-                <select id="select">
+                <select id="select" onChange={handleSearchByFilterChange}>
                     <option value="">Filter by Region</option>
                     <option value="africa">Africa</option>
-                    <option value="america">America</option>
+                    <option value="americas">Americas</option>
                     <option value="asia">Asia</option>
                     <option value="europe">Europe</option>
                     <option value="oceania">Oceania</option>
                 </select>
             </div>
             <div className='countries-part'>
-            { filteredCountries.map((countryData) => (
+            { filteredCountriesByFilter.map((countryData) => (
                 <div className='country-card'>
                     <div className='country-card-image'>
                         <img src={countryData.flags.svg} alt={`Flag of ${countryData.name}`} />
