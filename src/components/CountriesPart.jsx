@@ -4,13 +4,28 @@ import { ReactComponent as SearchIcon } from "../images/icon-search.svg";
 
 
 function CountriesPart(){
+    const [search, setSearch] = useState('');
+
+    const handleSearchChange = (event) =>{
+        setSearch(event.target.value);
+    }
+
+    const filteredCountries = data.filter((countryData) =>
+        countryData.name.toLowerCase().includes(search.toLowerCase())
+    );
 
     return(
         <div className='countries'>
             <div className='countries-search'>
                 <div className='input-area'>
                     <SearchIcon id='countries-search-icon'/>
-                    <input id="input"type='text' placeholder='Search for a country'/>
+                    <input 
+                        id="input"
+                        type='text' 
+                        placeholder='Search for a country'
+                        value={search}
+                        onChange={handleSearchChange}
+                    />
                 </div>
                 <select id="select">
                     <option value="">Filter by Region</option>
@@ -22,7 +37,7 @@ function CountriesPart(){
                 </select>
             </div>
             <div className='countries-part'>
-            { data.map((countryData) => (
+            { filteredCountries.map((countryData) => (
                 <div className='country-card'>
                     <div className='country-card-image'>
                         <img src={countryData.flags.svg} alt={`Flag of ${countryData.name}`} />

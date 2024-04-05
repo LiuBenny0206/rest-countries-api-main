@@ -4,7 +4,7 @@ import CountriesPart from './CountriesPart';
 import CountryDetails from './CountryDetails';
 
 function App(){
-    const [search, setSearch] = useState(true);
+    const [search, setSearch] = useState(false);
 
 
     return(
