@@ -3,16 +3,26 @@ import data from "../data.json";
 import { ReactComponent as BackArrow } from "../images/left-back-arrow-svgrepo-com.svg";
 
 function CountryDetails({countryData, backToMainPage}) {
+    const [borderCountry, setBorderCountry] = useState(null);  // 添加状态来存储边界国家信息
+
     const handleBtn = () => {
         backToMainPage(null);
     };
+
+    const handleBorderBtnClick = (borderCountryCode) =>{
+        const foundBorderCountry = data.find(country => country.alpha3Code === borderCountryCode);
+        if (foundBorderCountry) {
+            backToMainPage(foundBorderCountry); // 使用 backToMainPage 更新 App 组件中的 selectedCountry
+          }
+    };
+    
 
     return(
         <div className="country">
             <button id="country-button" onClick={handleBtn}><BackArrow/>Back</button>
             <div className="country-details">
                 <div className="country-image">
-                    <img src={countryData.flags.svg} alt={`Flag of ${countryData.name}`} />
+                    <img src={countryData.flags.svg || borderCountry.flags.svg} alt={`Flag of ${countryData.name}`} />
                 </div>
                 <div className="country-info">
                     <h1 id="country-title">{countryData.name}</h1>
@@ -36,7 +46,11 @@ function CountryDetails({countryData, backToMainPage}) {
                             {
                             countryData.borders?.length > 0
                                 ? countryData.borders.map((border) => (
-                                    <button key={border} className="border-country">{border}</button>
+                                    <button 
+                                        key={border} 
+                                        className="border-country"
+                                        onClick={() => handleBorderBtnClick(border)}
+                                    >{border}</button>
                                 ))
                                 : 'None'
                             }

@@ -224,3 +224,7 @@ body {
   width: 50px;
   cursor: pointer;
 }
+
+.borders-container button:hover{
+  transform: scale(1.1);
+}
