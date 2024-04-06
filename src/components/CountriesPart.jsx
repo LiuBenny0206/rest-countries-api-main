@@ -3,17 +3,23 @@ import data from '../data.json';
 import { ReactComponent as SearchIcon } from "../images/icon-search.svg";
 
 
-function CountriesPart(){
+function CountriesPart({onCountrySelect}){
     const [search, setSearch] = useState('');
     const [searchByFilter, setSearchByFilter] = useState('');
 
     const handleSearchChange = (event) =>{
         setSearch(event.target.value);
-    }
+    };
     const handleSearchByFilterChange = (event) =>{
         setSearchByFilter(event.target.value);
         console.log(event.target.value);
-    }
+    };
+
+    const handleCountryCard = (countryData) => {
+        onCountrySelect(countryData);
+        console.log(countryData.name);
+    };
+    
 
     const filteredCountries = data.filter((countryData) =>
         countryData.name.toLowerCase().includes(search.toLowerCase())
@@ -49,7 +55,7 @@ function CountriesPart(){
             <div className='countries-part'>
             { filteredCountriesByFilter.map((countryData) => (
                 <div className='country-card'>
-                    <div className='country-card-image'>
+                    <div className='country-card-image' onClick={() => handleCountryCard(countryData)}>
                         <img src={countryData.flags.svg} alt={`Flag of ${countryData.name}`} />
                     </div>
                     <div className='country-card-info'>
