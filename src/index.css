@@ -77,7 +77,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 60px;
 }
 
 
@@ -274,3 +273,59 @@
 .borders-container button:hover{
   transform: scale(1.1);
 }
+
+@media screen and (max-width: 815px ){
+  .countries-search {
+    display: flex;
+    flex-direction: column;  
+  }
+  .input-area{
+    height: 50px;
+    padding: 5px 10px;
+  }
+  .countries-search select{
+    margin: 40px 0px;    
+    height: 50px;
+  }
+  .countries-part{
+    margin: 0px;
+  }
+}
+@media screen and (max-width: 625px ){
+  .countries-search{
+    width: 300px;
+  }
+  .country-card-image{
+    width: 350px;
+  }
+  .country-card-info{
+    width: 330px;
+  }
+  .header #header-title{
+     font-size: 15px;
+ 
+  }
+  .header-theme-name{
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 375px ){
+  .header{
+    padding: 10px 40px;
+  }
+  .countries{
+    margin: 30px 40px;
+  }
+  .countries-search{
+    width: 250px;
+  }
+  .country-card-image{
+    width: 280px;
+  }
+  .country-card-info{
+    width: 260px;
+  }
+}
+
+
