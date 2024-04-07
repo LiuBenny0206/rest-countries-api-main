@@ -3,7 +3,7 @@ import data from '../data.json';
 import { ReactComponent as SearchIcon } from "../images/icon-search.svg";
 
 
-function CountriesPart({onCountrySelect}){
+function CountriesPart({onCountrySelect, isDarkMode, setIsDarkMode}){
     const [search, setSearch] = useState('');
     const [searchByFilter, setSearchByFilter] = useState('');
 
@@ -32,8 +32,8 @@ function CountriesPart({onCountrySelect}){
 
     return(
         <div className='countries'>
-            <div className='countries-search'>
-                <div className='input-area'>
+            <div className={`countries-search ${isDarkMode ? 'countries-search-dark-mode' : ''}`}>
+                <div className={`input-area ${isDarkMode ? 'input-area-dark-mode' : ''}`}>
                     <SearchIcon id='countries-search-icon'/>
                     <input 
                         id="input"
@@ -58,7 +58,7 @@ function CountriesPart({onCountrySelect}){
                     <div className='country-card-image' onClick={() => handleCountryCard(countryData)}>
                         <img src={countryData.flags.svg} alt={`Flag of ${countryData.name}`} />
                     </div>
-                    <div className='country-card-info'>
+                    <div className={`country-card-info ${isDarkMode ? 'country-card-info-dark-mode' : ''}`}>
                         <h4 id='country-card-info-name'>{countryData.name}</h4>
                         <div className='country-card-details'>
                             <p className='country-card-info-population'><b>Population: </b>{countryData.population}</p>

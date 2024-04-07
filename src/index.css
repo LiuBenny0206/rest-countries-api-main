@@ -16,11 +16,13 @@
   font-style: normal;
 }
 
-body {
+.main-part{
   background-color: var(--color-VeryLightGray);
 
 }
-
+.main-part-dark-mode{
+  background-color: var(--color-VeryDarkBlue);
+}
 
 /*------------------------------------*\
   #Header
@@ -47,10 +49,16 @@ body {
 .header-theme {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .header-theme #header-theme-name{
   margin-top: 4px;
+}
+
+.header-dark-mode{
+  background-color: var(--color-DarkBlue);
+  color: var(--color-White);
 }
 
 
@@ -72,6 +80,7 @@ body {
   height: 60px;
 }
 
+
 .input-area {
   display: flex;
   flex-direction: row;
@@ -81,6 +90,16 @@ body {
   padding: 10px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* x偏移，y偏移，模糊半径，颜色 */
 
+}
+
+.input-area-dark-mode{
+  background-color: var(--color-DarkBlue);
+  color: var(--color-White);
+}
+
+.input-area-dark-mode input{
+  background-color: var(--color-DarkBlue);
+  color: var(--color-White);
 }
 
 .input-area input {
@@ -101,6 +120,12 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* x偏移，y偏移，模糊半径，颜色 */
 
 }
+
+.countries-search-dark-mode select{
+  background-color: var(--color-DarkBlue);
+  color: var(--color-White);
+}
+
 /*------------------------------------*\
   #Countries-Cards-Area
 \*------------------------------------*/
@@ -144,7 +169,11 @@ body {
   padding-left: 20px;
   background-color: var(--color-White);
   border-radius: 0px 0px 5px 5px;
+}
 
+.country-card-info-dark-mode{
+  background-color: var(--color-DarkBlue);
+  color: var(--color-White);
 }
 
 #country-card-info-name{
@@ -165,7 +194,7 @@ body {
   padding: 50px 80px;
 }
 
-.country #country-button{
+.country-button{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,6 +206,15 @@ body {
   background-color: var(--color-White);
   box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2); /* x偏移，y偏移，模糊半径，颜色 */
   margin-bottom: 50px;
+}
+
+.country-button-dark-mode{
+  background-color: var(--color-DarkBlue);
+  color: var(--color-White);
+}
+
+.country-button-dark-mode svg{
+  fill: var(--color-White);
 }
 
 .country-details{
@@ -192,6 +230,9 @@ body {
   height: 340px;
 }
 
+.country-info-dark-mode{
+  color: var(--color-White);
+}
 
 #country-title{
   position: relative;
@@ -223,6 +264,11 @@ body {
   margin: 0px 5px;
   width: 50px;
   cursor: pointer;
+}
+
+.borders-container-dark-mode button{
+  background-color: var(--color-DarkBlue);
+  color: var(--color-White);
 }
 
 .borders-container button:hover{

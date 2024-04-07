@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import data from "../data.json";
 import { ReactComponent as BackArrow } from "../images/left-back-arrow-svgrepo-com.svg";
 
-function CountryDetails({countryData, backToMainPage}) {
+function CountryDetails({countryData, backToMainPage,isDarkMode, setIsDarkMode }) {
     const [borderCountry, setBorderCountry] = useState(null);  // 添加状态来存储边界国家信息
 
     const handleBtn = () => {
@@ -19,12 +19,12 @@ function CountryDetails({countryData, backToMainPage}) {
 
     return(
         <div className="country">
-            <button id="country-button" onClick={handleBtn}><BackArrow/>Back</button>
+            <button className={`country-button ${isDarkMode ? 'country-button-dark-mode' : ''}`} onClick={handleBtn}><BackArrow/>Back</button>
             <div className="country-details">
                 <div className="country-image">
-                    <img src={countryData.flags.svg || borderCountry.flags.svg} alt={`Flag of ${countryData.name}`} />
+                    <img src={countryData.flags.svg} alt={`Flag of ${countryData.name}`} />
                 </div>
-                <div className="country-info">
+                <div className={`country-info ${isDarkMode ? 'country-info-dark-mode' : ''}`}>
                     <h1 id="country-title">{countryData.name}</h1>
                     <div className="country-info-detalis">
                         <div className="country-details-firstrow">
@@ -42,7 +42,7 @@ function CountryDetails({countryData, backToMainPage}) {
                     </div>
                     <div className="country-details-downpart">
                         <b>Border Countries: </b>
-                        <div className="borders-container">
+                        <div className={`borders-container ${isDarkMode ? 'borders-container-dark-mode' : ''}`}>
                             {
                             countryData.borders?.length > 0
                                 ? countryData.borders.map((border) => (

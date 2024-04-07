@@ -3,25 +3,25 @@ import Header from './Header';
 import CountriesPart from './CountriesPart';
 import CountryDetails from './CountryDetails';
 
-function App(){
+function App() {
     const [selectedCountry, setSelectedCountry] = useState(null);
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     const handleCountrySelect = (countryData) => {
         setSelectedCountry(countryData);
     };
 
-    return(
-        <div className='main-part'>
-            <Header />
+    return (
+        <div className={`main-part ${isDarkMode ? 'main-part-dark-mode' : ''}`}>
+            <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
             {!selectedCountry ? (
-                // 如果没有选中的国家，展示国家列表
-                <CountriesPart onCountrySelect={handleCountrySelect} />
+                <CountriesPart onCountrySelect={handleCountrySelect} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
             ) : (
-                // 否则，展示选中国家的详细信息
-                <CountryDetails countryData={selectedCountry} backToMainPage={setSelectedCountry}/>
+                <CountryDetails countryData={selectedCountry} backToMainPage={setSelectedCountry} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
             )}
         </div>
     );
 }
+
 
 export default App;
